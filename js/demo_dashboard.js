@@ -26,6 +26,50 @@ $(function(){
     }
     /* end reportrange */
     
+	   
+		//    bar chart
+
+    $(function () {
+        var d1 = [];
+        for (var i = 0; i <= 10; i += 1)
+            d1.push([i, parseInt(Math.random() * 30)]);
+
+        var d2 = [];
+        for (var i = 0; i <= 10; i += 1)
+            d2.push([i, parseInt(Math.random() * 30)]);
+
+        var d3 = [];
+        for (var i = 0; i <= 10; i += 1)
+            d3.push([i, parseInt(Math.random() * 30)]);
+
+        var stack = 0, bars = true, lines = false, steps = false;
+
+        function plotWithOptions() {
+            $.plot($("#chart-5"), [ d1, d2, d3 ], {
+                series: {
+                    stack: stack,
+                    lines: { show: lines, fill: true, steps: steps },
+                    bars: { show: bars, barWidth: 0.6 }
+                }
+            });
+        }
+
+        plotWithOptions();
+
+        $(".stackControls input").click(function (e) {
+            e.preventDefault();
+            stack = $(this).val() == "With stacking" ? true : null;
+            plotWithOptions();
+        });
+        $(".graphControls input").click(function (e) {
+            e.preventDefault();
+            bars = $(this).val().indexOf("Bars") != -1;
+            lines = $(this).val().indexOf("Lines") != -1;
+            steps = $(this).val().indexOf("steps") != -1;
+            plotWithOptions();
+        });
+    });
+	
     /* Rickshaw dashboard chart */
     // var seriesData = [ [], [] ];
     // var random = new Rickshaw.Fixtures.RandomData(1000);
@@ -69,9 +113,9 @@ $(function(){
     Morris.Donut({
         element: 'dashboard-donut-1',
         data: [
-            {label: "Returned", value: 2513},
-            {label: "New", value: 764},
-            {label: "Registred", value: 311}
+            {label: "In Production", value: 218},
+            {label: "Pre Production", value: 80},
+            {label: "Procurement", value: 18}
         ],
         colors: ['#33414E', '#1caf9a', '#FEA223'],
         resize: true
@@ -83,17 +127,17 @@ $(function(){
     Morris.Bar({
         element: 'dashboard-bar-1',
         data: [
-            { y: 'Oct 10', a: 75, b: 35 },
-            { y: 'Oct 11', a: 64, b: 26 },
-            { y: 'Oct 12', a: 78, b: 39 },
-            { y: 'Oct 13', a: 82, b: 34 },
-            { y: 'Oct 14', a: 86, b: 39 },
-            { y: 'Oct 15', a: 94, b: 40 },
-            { y: 'Oct 16', a: 96, b: 41 }
+            { y: 'Week-1', a: 75, b: 35 },
+            { y: 'Week-2', a: 64, b: 26 },
+            { y: 'Week-3', a: 78, b: 39 },
+            { y: 'Week-4', a: 82, b: 34 },
+            { y: 'Week-5', a: 86, b: 39 },
+            { y: 'Week-6', a: 94, b: 40 },
+            { y: 'Week-7', a: 96, b: 41 }
         ],
         xkey: 'y',
         ykeys: ['a', 'b'],
-        labels: ['New Users', 'Returned'],
+        labels: ['Breakshape', 'Backpan'],
         barColors: ['#33414E', '#1caf9a'],
         gridTextSize: '10px',
         hideHover: true,

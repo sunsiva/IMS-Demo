@@ -339,11 +339,16 @@ $(function() {
         
         //OWL Carousel
         var uiOwlCarousel = function(){
-            
-            if($(".owl-carousel").length > 0){
-                $(".owl-carousel").owlCarousel({mouseDrag: false, touchDrag: true, slideSpeed: 300, paginationSpeed: 400, singleItem: true, navigation: false,autoPlay: true});
+
+			if($("#owl-example1").length > 0){
+                $("#owl-example1").owlCarousel({mouseDrag: false, touchDrag: true, slideSpeed: 300, paginationSpeed: 400, singleItem: true, navigation: false,autoPlay: false});
+				$("#owl-example2").owlCarousel({mouseDrag: false, touchDrag: true, slideSpeed: 300, paginationSpeed: 400, singleItem: true, navigation: false,autoPlay: false});
             }
-            
+			if($(".owl-carousel").length > 0){
+                
+				$(".owl-carousel").owlCarousel({mouseDrag: false, touchDrag: true, slideSpeed: 300, paginationSpeed: 400, singleItem: true, navigation: false,autoPlay: true});
+			}
+			
         }//End OWL Carousel
         
         // Summernote 
@@ -417,6 +422,7 @@ $(function() {
                 $(".owl-carousel").data('owlCarousel').destroy();
                 uiOwlCarousel();
             }
+
         });
        
         return {

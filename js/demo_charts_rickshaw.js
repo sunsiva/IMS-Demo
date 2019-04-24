@@ -119,9 +119,9 @@ $(function(){
                 element: document.getElementById("charts-legend"),
                 renderer: 'area',
                 width: $("#charts-legend").width(),
-                series: [{color: "#33414E",data: seriesData[0],name: 'Total'}, 
-                         {color: "#1caf9a",data: seriesData[1],name: 'New'}, 
-                         {color: "#B64645",data: seriesData[2],name: 'Returned'}]
+                series: [{color: "#33414E",data: seriesData[0],name: 'Procurement'}, 
+                         {color: "#1caf9a",data: seriesData[1],name: 'Pre production'}, 
+                         {color: "#B64645",data: seriesData[2],name: 'In Production'}]
         } );
 
         graph.render();

@@ -8,7 +8,8 @@ var nvd3Charts = function() {
         d3.scale.myColors = function() {
             return d3.scale.ordinal().range(myColors);
         };
-        
+     
+		
 	var startChart1 = function() {
 		/*These lines are all chart setup.  Pick and choose which chart features you want to utilize. */
 		nv.addGraph(function() {
